@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Etsy SEO Asistanı</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.mjs" type="module"></script>
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>Etsy SEO İçerik Üretici</h1>
+        <p>
+          PDF eğitim notlarından, anahtar kelimelerden ve rakip analizinden hareketle Etsy ilan başlığı,
+          açıklama, etiket ve materyal listesi üretir.
+        </p>
+      </header>
+
+      <section class="card">
+        <h2>1) SEO Eğitimi (PDF)</h2>
+        <input id="pdfInput" type="file" accept="application/pdf" multiple />
+        <p id="pdfStatus" class="hint">Henüz PDF yüklenmedi.</p>
+      </section>
+
+      <section class="card grid">
+        <div>
+          <h2>2) Ürün Bilgisi</h2>
+          <label for="productImage">Ürün görseli</label>
+          <input id="productImage" type="file" accept="image/*" />
+          <img id="imagePreview" alt="Ürün görsel önizleme" class="preview hidden" />
+
+          <label for="productName">Ürün adı / türü</label>
+          <input id="productName" type="text" placeholder="Örn: Boho dijital poster" />
+
+          <label for="keywords">Anahtar kelimeler (virgülle ayır)</label>
+          <textarea id="keywords" rows="4" placeholder="boho poster, wall art, minimalist decor"></textarea>
+
+          <label for="materialsInput">Materyal adayları (opsiyonel, virgülle ayır)</label>
+          <textarea
+            id="materialsInput"
+            rows="3"
+            placeholder="premium paper, matte finish, eco ink"
+          ></textarea>
+        </div>
+
+        <div>
+          <h2>3) Kural ve Stil</h2>
+          <label for="requiredPhrase">Başlıkta geçmesi gereken ifade (opsiyonel)</label>
+          <input id="requiredPhrase" type="text" placeholder="Örn: Instant Download" />
+
+          <label for="competitorTitle">Rakip satıcı başlığı (opsiyonel)</label>
+          <textarea id="competitorTitle" rows="3" placeholder="Rakip başlığı buraya..."></textarea>
+
+          <label for="descriptionStyle">Açıklama stili (olmazsa olmaz metin / ton)</label>
+          <textarea
+            id="descriptionStyle"
+            rows="6"
+            placeholder="Örn: Samimi ama profesyonel ton. İlk paragrafta ürün faydasını vurgula..."
+          ></textarea>
+
+          <button id="generateBtn" type="button">SEO İçeriği Üret</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>4) Çıktılar</h2>
+        <div class="output-group">
+          <h3>Başlık <span id="titleLen" class="meta">0/140</span></h3>
+          <textarea id="titleOutput" rows="3" readonly></textarea>
+        </div>
+
+        <div class="output-group">
+          <h3>Açıklama</h3>
+          <textarea id="descriptionOutput" rows="10" readonly></textarea>
+        </div>
+
+        <div class="output-group">
+          <h3>Etiketler (≤20 karakter)</h3>
+          <ul id="tagsOutput" class="chip-list"></ul>
+        </div>
+
+        <div class="output-group">
+          <h3>Materials (13 adet, ≤45 karakter)</h3>
+          <ol id="materialsOutput"></ol>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
